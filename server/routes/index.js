@@ -1,14 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
+router.get(/^\/*/, function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	next();
+});
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
 router.get('/address', function(req, res) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	
 	var data = [
 	{
 		name: '李琦',
@@ -23,6 +27,22 @@ router.get('/address', function(req, res) {
 		address: '翡翠城东北区芦苑3幢2单元',
 		apartment: '501',
 		isChecked: 'no'
+	}
+	];
+	
+	res.send(JSON.stringify(data));
+});
+
+router.get('/todos', function(req, res) {
+	
+	var data = [
+	{
+		date: '4月16日~18日',
+		content: '草莓需要干嘛干嘛'
+	},	
+	{
+		date: '4月25日~28日',
+		content: '西瓜需要干嘛干嘛'
 	}
 	];
 	
