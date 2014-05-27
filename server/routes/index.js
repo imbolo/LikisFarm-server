@@ -38,11 +38,11 @@ router.get('/todos', function(req, res) {
 	var data = [
 	{
 		date: '4月16日~18日',
-		content: '草莓需要干嘛干嘛'
+		content: '草莓需要您去浇水'
 	},	
 	{
 		date: '4月25日~28日',
-		content: '西瓜需要干嘛干嘛'
+		content: '西瓜需要杀虫'
 	}
 	];
 	
